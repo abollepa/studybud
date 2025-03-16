@@ -3,12 +3,21 @@
     <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <title>Page Title</title>
+        <title>StudyBud</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-        <script src='main.js'></script>
     </head>
     <body>
+        {% include 'navbar.html' %}
+
+        {% if messages %}
+        <ul class="messages">
+            {% for messages in messages %}
+            <li{% if messages.tags %} class="{{ message.tags }}" {% endif %}>{{ message
+        }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
         {% block content %}
 
         {% endblock %}
